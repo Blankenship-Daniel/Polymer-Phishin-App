@@ -29,11 +29,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <phishin-ajax
       search-type="years"
       search-param="2016"
-      last-response="{{response}}">
+      response="{{ajaxResponse}}">
     </phishin-ajax>
 
     <ul>
-      <template is="dom-repeat" items="{{_toArray(response.data)}}">
+      <template is="dom-repeat" items="{{_toArray(ajaxResponse.data)}}">
         <li>
           <span>
             <a target="_blank" href="http://phish.in/{{item.value.date}}">
