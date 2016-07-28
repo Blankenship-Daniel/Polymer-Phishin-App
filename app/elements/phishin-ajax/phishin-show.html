@@ -10,10 +10,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
-<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="phishin-ajax.html">
 
 
-<dom-module id="phishin-ajax">
+<dom-module id="phishin-show">
   <template>
     <style>
       :host {
@@ -25,15 +25,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <input type="text" value="{{searchParam::change}}">
+    <p>Please enter a show date (yyy-mm-dd): </p>
+    <phishin-ajax
+      search-type="shows"
+      search-param="2016-07-23"
+      last-response="{{response}}">
+    </phishin-ajax>
 
-    <iron-ajax
-            auto
-            url="{{url}}"
-            handle-as="json"
-            last-response="{{response}}">
-    </iron-ajax>
-
+    <ul>
+      <template is="dom-repeat" items="{{_toArray(response.data)}}">
+        <li>
+          <span>
+            <a target="_blank" href="http://phish.in/{{item.value.date}}">
+              {{item.value.date}}
+            </a>
+          </span>
+        </li>
+      </template>
+    </ul>
   </template>
 
   <script>
@@ -41,23 +50,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
 
       Polymer({
-        is: 'phishin-ajax',
+        is: 'phishin-show',
 
         properties: {
-          searchType: {
-            type: String
-          },
-          searchParam: {
-            type: String
-          },
-          url: {
-            computed: 'computeUrl(searchType, searchParam)'
-          },
-          lastResponse: {
-            type: Object,
-            notify: true,
-            readOnly: true
-          }
+
         },
 
         computeUrl: function(searchType, searchParam) {

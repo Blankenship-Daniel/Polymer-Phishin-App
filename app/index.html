@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit">
-  <title>Polymer Starter Kit</title>
+  <title>Polymer Phishin App</title>
 
   <!-- Place favicon.ico in the `app/` directory -->
 
@@ -86,6 +86,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="today"></iron-icon>
             <span>Year</span>
           </a>
+
+          <a data-route="show" href="{{baseUrl}}show">
+            <iron-icon icon="event-seat"></iron-icon>
+            <span>Show</span>
+          </a>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -103,32 +108,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application name -->
           <div class="middle middle-container">
-            <div class="app-name">Polymer Starter Kit</div>
+            <div class="app-name">Polymer Phishin App</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">The future of the web today</div>
+            <div class="bottom-title">Simple Polymer Phishin App</div>
           </div>
         </paper-toolbar>
 
         <!-- Main Content -->
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
             <section data-route="home" tabindex="-1">
+
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Phish</h1>
                 <p>Phish is a U.S.-based band known for musical improvisation, extended jams, blending of genres, and dedicated fan base. Originating at the University of Vermont in 1983 (with the current line-up solidifying in 1985), the band's four members—Trey Anastasio (guitars, lead vocals), Mike Gordon (bass, vocals), Jon Fishman (drums, percussion, vacuum, vocals), and Page McConnell (keyboards, vocals)—performed together for nearly 20 years before going on hiatus in August 2004. They reunited in March 2009 for a series of three consecutive concerts played in the Hampton Coliseum in Hampton, Virginia, and have since resumed performing regularly.</p>
                 <p>Phish's music blends elements of a wide variety of genres,[2] including funk, progressive rock, psychedelic rock, folk, country, jazz, blues, bluegrass, and pop.[1][3] Although the band has received little radio play or mainstream exposure, Phish has developed a large and dedicated following by word of mouth, the exchange of live recordings, and selling over 8 million albums and DVDs in the United States.[4] Rolling Stone stated that the band helped to "...spawn a new wave of bands oriented around group improvisation and extended instrumental grooves".[5] They remain a very popular and successful touring act.[6]</p>
               </paper-material>
+
             </section>
+
             <section data-route="year" tabindex="-1">
+
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Year</h1>
-                <p>Pick a year to view all shows played</p>
-                <phishin-ajax search-type="years" search-param="2015"></phishin-ajax>
+                <phishin-year></phishin-year>
               </paper-material>
+
             </section>
+
+            <section data-route="show" tabindex="-1">
+
+              <paper-material elevation="1">
+                <h1 class="page-title" tabindex="-1">Show</h1>
+                <phishin-show></phishin-show>
+            </section>
+
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
