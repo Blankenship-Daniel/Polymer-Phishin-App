@@ -91,6 +91,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="event-seat"></iron-icon>
             <span>Show</span>
           </a>
+
+          <a data-route="songs" href="{{baseUrl}}songs">
+            <iron-icon icon="av:queue-music"></iron-icon>
+            <span>Songs</span>
+          </a>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -145,6 +150,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Show</h1>
                 <phishin-show></phishin-show>
+              </paper-material>
+
+            </section>
+
+            <section data-route="songs" tabindex="-1">
+
+              <paper-material elevation="1">
+                <h1 class="page-title" tabindex="-1">Songs</h1>
+                <phishin-songs></phishin-songs>
+              </paper-material>
+
             </section>
 
           </iron-pages>

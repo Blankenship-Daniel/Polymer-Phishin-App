@@ -26,9 +26,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <p>Please enter a show date (yyy-mm-dd): </p>
+    <input type="text" value="{{param::change}}">
+
     <phishin-ajax
       search-type="shows"
-      search-param="2016-07-23"
+      search-param="{{param}}"
       response="{{ajaxResponse}}">
     </phishin-ajax>
 
@@ -36,7 +38,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat" items="{{ajaxResponse.data.tracks}}">
         <li>
           <span>
-            {{item.title}}
+            <a href="http://phish.in/{{show}}/{{item.slug}}">
+              {{item.title}}
+            </a>
           </span>
         </li>
       </template>
@@ -51,7 +55,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         is: 'phishin-show',
 
         properties: {
-
+          param: {
+            type: String,
+            notify: true,
+            value: "2016-07-23"
+          }
         },
 
         computeUrl: function(searchType, searchParam) {
@@ -63,6 +71,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * JSON and converts it to an array.
          */
         _toArray: function(obj) {
+          if (obj == null) {
+            return [];
+          }
+
           return Object.keys(obj).map(function(key) {
             return {
               name: key,

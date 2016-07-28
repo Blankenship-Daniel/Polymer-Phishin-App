@@ -13,7 +13,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="phishin-ajax.html">
 
 
-<dom-module id="phishin-year">
+<dom-module id="phishin-songs">
   <template>
     <style>
       :host {
@@ -25,26 +25,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <p>Please enter a year: </p>
-    <input type="text" value="{{param::change}}">
-
+    <p>Please select a song: </p>
     <phishin-ajax
-      search-type="years"
-      search-param="{{param}}"
+      search-type="songs"
+      search-params='{"per_page": "1000", "sort_attr": "slug"}'
       response="{{ajaxResponse}}">
     </phishin-ajax>
 
-    <ul>
-      <template is="dom-repeat" items="{{_toArray(ajaxResponse.data)}}">
+    <ol>
+      <template is="dom-repeat" items="{{ajaxResponse.data}}">
         <li>
           <span>
-            <a target="_blank" href="http://phish.in/{{item.value.date}}">
-              {{item.value.date}}
-            </a>
+            <a href="/">{{item.title}}</a>
           </span>
         </li>
       </template>
-    </ul>
+    </ol>
   </template>
 
   <script>
@@ -52,14 +48,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
 
       Polymer({
-        is: 'phishin-year',
+        is: 'phishin-songs',
 
-        properties: {
-            param: {
-              type: String,
-              notify: true,
-              value: "2016"
-            }
+        computeUrl: function(searchType, searchParam) {
+          var url = ['http://phish.in/api/v1', searchType, searchParam].join('/');
+          console.log(url);
+          return url;
         },
 
         /*

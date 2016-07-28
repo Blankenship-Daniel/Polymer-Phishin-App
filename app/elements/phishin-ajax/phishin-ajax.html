@@ -25,11 +25,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <input type="text" value="{{searchParam::change}}">
-
     <iron-ajax
             auto
             url="{{url}}"
+            params='{{searchParams}}'
             handle-as="json"
             last-response="{{response}}">
     </iron-ajax>
@@ -44,40 +43,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         is: 'phishin-ajax',
 
         properties: {
+          searchParams: {
+            type: Object,
+            value: function() {
+              return {};
+            }
+          },
           searchType: {
             type: String
           },
           searchParam: {
-            type: String
+            type: String,
+            notify: true,
+            value: ""
           },
           url: {
             computed: 'computeUrl(searchType, searchParam)'
           },
           response: {
             type: Object,
-            notify: true
+            notify: true,
+            value: function() {
+              return {};
+            }
           }
         },
 
         computeUrl: function(searchType, searchParam) {
           return ['http://phish.in/api/v1', searchType, searchParam].join('/');
-        },
-
-        /*
-         * dom-repeat expects an array to iterate over. This function takes
-         * JSON and converts it to an array.
-         */
-        _toArray: function(obj) {
-          return Object.keys(obj).map(function(key) {
-            return {
-              name: key,
-              value: obj[key]
-            };
-          });
-        },
-
-        _stringify: function(obj) {
-          return JSON.stringify(obj);
         }
       });
     })();
