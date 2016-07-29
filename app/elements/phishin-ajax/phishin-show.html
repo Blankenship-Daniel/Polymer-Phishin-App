@@ -26,11 +26,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <p>Please enter a show date (yyy-mm-dd): </p>
-    <input type="text" value="{{param::change}}">
+    <input type="text" value="{{showDate::input}}">
+    <input type="text" value="{{showDate::input}}">
+    <input type="text" value="{{showDate::input}}">
 
     <phishin-ajax
       search-type="shows"
-      search-param="{{param}}"
+      search-param="{{showDate}}"
       response="{{ajaxResponse}}">
     </phishin-ajax>
 
@@ -38,7 +40,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template is="dom-repeat" items="{{ajaxResponse.data.tracks}}">
         <li>
           <span>
-            <a target="_blank" href="http://phish.in/{{param}}/{{item.slug}}">
+            <a target="_blank" href="http://phish.in/{{showDate}}/{{item.slug}}">
               {{item.title}}
             </a>
           </span>
@@ -55,10 +57,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         is: 'phishin-show',
 
         properties: {
-          param: {
+          showDate: {
             type: String,
             notify: true,
-            value: "2016-07-23"
+            reflectToAttribute: true
           }
         },
 
