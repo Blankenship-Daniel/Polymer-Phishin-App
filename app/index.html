@@ -163,6 +163,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             </section>
 
+            <section data-route="song-info" tabindex="-1">
+
+              <paper-material elevation="1">
+                <h1 class="page-title" tabindex="-1">{{params.name}}</h1>
+                <phishin-song slug="{{params.slug}}"></phishin-song>
+              </paper-material>
+
+            </section>
+
           </iron-pages>
         </div>
       </paper-scroll-header-panel>

@@ -13,7 +13,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="phishin-ajax.html">
 
 
-<dom-module id="phishin-songs">
+<dom-module id="phishin-song">
   <template>
     <style>
       :host {
@@ -25,18 +25,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <p>Please select a song: </p>
+    <p>Please select a show: </p>
     <phishin-ajax
       search-type="songs"
-      search-params='{"per_page": "1000", "sort_attr": "slug"}'
+      search-param={{slug}}
       response="{{ajaxResponse}}">
     </phishin-ajax>
 
     <ol>
-      <template is="dom-repeat" items="{{ajaxResponse.data}}">
+      <template is="dom-repeat" items="{{ajaxResponse}}">
         <li>
           <span>
-            <a href="/songs/{{item.title}}/{{item.slug}}">{{item.title}}</a>
           </span>
         </li>
       </template>
@@ -48,7 +47,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
 
       Polymer({
-        is: 'phishin-songs',
+        is: 'phishin-song',
+
+        properties: {
+          slug: {
+            type: String
+          }
+        },
 
         computeUrl: function(searchType, searchParam) {
           var url = ['http://phish.in/api/v1', searchType, searchParam].join('/');
