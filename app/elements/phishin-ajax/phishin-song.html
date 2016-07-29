@@ -28,14 +28,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <p>Please select a show: </p>
     <phishin-ajax
       search-type="songs"
-      search-param={{slug}}
+      search-param="{{slug}}"
       response="{{ajaxResponse}}">
     </phishin-ajax>
 
     <ol>
-      <template is="dom-repeat" items="{{ajaxResponse}}">
+      <template is="dom-repeat" items="{{ajaxResponse.data.tracks}}">
         <li>
           <span>
+            <a target="_blank"
+               href="http://phish.in/{{item.show_date}}/{{slug}}">
+               {{item.show_date}}</a>
           </span>
         </li>
       </template>
