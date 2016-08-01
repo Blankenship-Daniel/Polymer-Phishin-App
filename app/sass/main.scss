@@ -11,9 +11,24 @@
  *  4. State
  *  5. Theme
  *****************************************************************************/
+
+
 /******************************************************************************
  * Globals
  *****************************************************************************/
+
+// Variables
+$site-background-color: #fafafa;
+$site-font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$site-font-color: #333;
+
+// Mixins
+@mixin border-radius($border-radius) {
+  -webkit-border-radius: $border-radius;
+     -moz-border-radius: $border-radius;
+          border-radius: $border-radius;
+}
+
 /******************************************************************************
  * Base
  *
@@ -28,10 +43,11 @@
  *  a { color: #039; }
  *  a:hover { color: #03C; }
  *****************************************************************************/
-body {
-  background: #fafafa;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333; }
+ body {
+   background: $site-background-color;
+   font-family: $site-font-family;
+   color: $site-font-color;
+ }
 
 /******************************************************************************
  * Layout
@@ -39,12 +55,14 @@ body {
  * Layout rules divide the page into sections. Layouts hold one or more
  *  modules together.
  *****************************************************************************/
+
 /******************************************************************************
  * Module
  *
  * Modules are the reusable, modular parts of our design. They are the
  *  callouts, the sidebar sections, the products lists and so on.
  *****************************************************************************/
+
 /******************************************************************************
  * State
  *
@@ -54,7 +72,8 @@ body {
  *  smaller or bigger. They are also about describing how a module might look
  *  in different views like the home page or the inside page.
  *****************************************************************************/
-/******************************************************************************
+
+ /******************************************************************************
   * Theme
   *
   * Theme rules are similar to state rules in that they describe how modules or
@@ -62,9 +81,9 @@ body {
   *  good to be aware of it.
   *****************************************************************************/
 .page-title {
-  outline: none; }
+  outline: none;
+}
 
 paper-material {
-  -webkit-border-radius: 25px !important;
-  -moz-border-radius: 25px !important;
-  border-radius: 25px !important; }
+  @include border-radius(25px !important);
+}
