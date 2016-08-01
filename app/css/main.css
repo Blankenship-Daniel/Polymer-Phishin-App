@@ -54,13 +54,19 @@ body {
  *  smaller or bigger. They are also about describing how a module might look
  *  in different views like the home page or the inside page.
  *****************************************************************************/
+.is-hidden {
+  display: none; }
+
+.is-error {
+  color: #dd2c00; }
+
 /******************************************************************************
-  * Theme
-  *
-  * Theme rules are similar to state rules in that they describe how modules or
-  *  layouts might look. Most sites don't require a layer of theming but it is
-  *  good to be aware of it.
-  *****************************************************************************/
+ * Theme
+ *
+ * Theme rules are similar to state rules in that they describe how modules or
+ *  layouts might look. Most sites don't require a layer of theming but it is
+ *  good to be aware of it.
+ *****************************************************************************/
 .page-title {
   outline: none; }
 

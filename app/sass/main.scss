@@ -18,16 +18,10 @@
  *****************************************************************************/
 
 // Variables
-$site-background-color: #fafafa;
-$site-font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$site-font-color: #333;
+@import 'global-vars';
 
 // Mixins
-@mixin border-radius($border-radius) {
-  -webkit-border-radius: $border-radius;
-     -moz-border-radius: $border-radius;
-          border-radius: $border-radius;
-}
+@import 'mixins';
 
 /******************************************************************************
  * Base
@@ -43,11 +37,7 @@ $site-font-color: #333;
  *  a { color: #039; }
  *  a:hover { color: #03C; }
  *****************************************************************************/
- body {
-   background: $site-background-color;
-   font-family: $site-font-family;
-   color: $site-font-color;
- }
+@import 'base.scss';
 
 /******************************************************************************
  * Layout
@@ -55,6 +45,7 @@ $site-font-color: #333;
  * Layout rules divide the page into sections. Layouts hold one or more
  *  modules together.
  *****************************************************************************/
+@import 'layout.scss';
 
 /******************************************************************************
  * Module
@@ -62,6 +53,7 @@ $site-font-color: #333;
  * Modules are the reusable, modular parts of our design. They are the
  *  callouts, the sidebar sections, the products lists and so on.
  *****************************************************************************/
+@import 'module.scss';
 
 /******************************************************************************
  * State
@@ -72,18 +64,13 @@ $site-font-color: #333;
  *  smaller or bigger. They are also about describing how a module might look
  *  in different views like the home page or the inside page.
  *****************************************************************************/
+ @import 'state.scss';
 
- /******************************************************************************
-  * Theme
-  *
-  * Theme rules are similar to state rules in that they describe how modules or
-  *  layouts might look. Most sites don't require a layer of theming but it is
-  *  good to be aware of it.
-  *****************************************************************************/
-.page-title {
-  outline: none;
-}
-
-paper-material {
-  @include border-radius(25px !important);
-}
+/******************************************************************************
+ * Theme
+ *
+ * Theme rules are similar to state rules in that they describe how modules or
+ *  layouts might look. Most sites don't require a layer of theming but it is
+ *  good to be aware of it.
+ *****************************************************************************/
+@import 'theme.scss';

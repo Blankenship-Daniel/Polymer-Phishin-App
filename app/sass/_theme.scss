@@ -1,0 +1,7 @@
+.page-title {
+  outline: none;
+}
+
+paper-material {
+  @include border-radius(25px !important);
+}
