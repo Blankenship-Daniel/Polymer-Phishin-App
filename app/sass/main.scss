@@ -18,10 +18,10 @@
  *****************************************************************************/
 
 // Variables
-@import 'global-vars';
+@import 'base/global-vars';
 
 // Mixins
-@import 'mixins';
+@import 'base/mixins';
 
 /******************************************************************************
  * Base
@@ -37,7 +37,7 @@
  *  a { color: #039; }
  *  a:hover { color: #03C; }
  *****************************************************************************/
-@import 'base.scss';
+@import 'base/base';
 
 /******************************************************************************
  * Layout
@@ -45,7 +45,7 @@
  * Layout rules divide the page into sections. Layouts hold one or more
  *  modules together.
  *****************************************************************************/
-@import 'layout.scss';
+@import 'layouts/layout';
 
 /******************************************************************************
  * Module
@@ -53,7 +53,7 @@
  * Modules are the reusable, modular parts of our design. They are the
  *  callouts, the sidebar sections, the products lists and so on.
  *****************************************************************************/
-@import 'module.scss';
+@import 'modules/modules';
 
 /******************************************************************************
  * State
@@ -64,7 +64,7 @@
  *  smaller or bigger. They are also about describing how a module might look
  *  in different views like the home page or the inside page.
  *****************************************************************************/
- @import 'state.scss';
+ @import 'states/states';
 
 /******************************************************************************
  * Theme
@@ -73,4 +73,4 @@
  *  layouts might look. Most sites don't require a layer of theming but it is
  *  good to be aware of it.
  *****************************************************************************/
-@import 'theme.scss';
+@import 'themes/themes';
