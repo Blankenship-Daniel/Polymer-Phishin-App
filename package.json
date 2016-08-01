@@ -1,0 +1,26 @@
+{
+  "name": "polymer-phishin-app",
+  "version": "1.0.0",
+  "description": "Welcome to Polymer Starter Kit Light!",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blankenship-Daniel/Polymer-Phishin-App.git"
+  },
+  "author": "Daniel Blankenship",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blankenship-Daniel/Polymer-Phishin-App/issues"
+  },
+  "homepage": "https://github.com/Blankenship-Daniel/Polymer-Phishin-App#readme"
+}
